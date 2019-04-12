@@ -76,9 +76,9 @@ class Xhgui_ServiceContainer extends Pimple
                 $config['db.options'] = array();
             }
             $mongo = new \MongoDB\Driver\Manager($config['db.host'], $config['db.options']);
-            $mongo->{$config['db.db']}->results->findOne();
+            //$mongo->selectDatabase($config['db.db'])->results->findOne();
 
-            return $mongo->{$config['db.db']};
+            return $mongo->selectDatabase($config['db.db']);
         });
 
         $this['watchFunctions'] = function ($c) {

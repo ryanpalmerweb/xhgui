@@ -8,7 +8,7 @@ class Xhgui_Profiles
 
     protected $_mapper;
 
-    public function __construct(MongoDb $db)
+    public function __construct(MongoDB\Database $db)
     {
         $this->_collection = $db->results;
         $this->_mapper = new Xhgui_Db_Mapper();

@@ -89,12 +89,12 @@ class Xhgui_Profiles
 
         if ($projection === false) {
             $cursor = $this->_collection->find($opts['conditions'])
-                ->sort($opts['sort'])
+                //->sort($opts['sort'])
                 ->skip((int)($page - 1) * $opts['perPage'])
                 ->limit($opts['perPage']);
         } else {
             $cursor = $this->_collection->find($opts['conditions'], $projection)
-                ->sort($opts['sort'])
+                //->sort($opts['sort'])
                 ->skip((int)($page - 1) * $opts['perPage'])
                 ->limit($opts['perPage']);
         }

@@ -75,10 +75,10 @@ class Xhgui_ServiceContainer extends Pimple
             if (empty($config['db.options'])) {
                 $config['db.options'] = array();
             }
-            $mongo = new \MongoDB\Driver\Manager($config['db.host'], $config['db.options']);
-            //$mongo->selectDatabase($config['db.db'])->results->findOne();
+            $mongo = new \MongoDB\Client($config['db.host'], $config['db.options']);
+            $mongo->{$config['db.db']}->results->findOne();
 
-            return $mongo->selectDatabase($config['db.db']);
+            return $mongo->{$config['db.db']};
         });
 
         $this['watchFunctions'] = function ($c) {
